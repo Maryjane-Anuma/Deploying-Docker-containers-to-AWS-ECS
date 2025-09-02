@@ -1,5 +1,0 @@
-grafana-ecs-fargate/
-│── task-definitions/
-│    └── grafana-task-def.json
-│── docs/
-     └── ecs-service-steps.md
