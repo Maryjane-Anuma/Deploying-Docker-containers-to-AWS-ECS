@@ -1,0 +1,55 @@
+# ECS Fargate Deployment – Detailed Steps
+
+This guide explains the **step-by-step process** for deploying Grafana on **Amazon ECS with Fargate**.
+
+---
+
+## 1️⃣ Setup Networking
+- Created a **VPC** with:
+  - 2 **public subnets**
+  - **Internet Gateway** (IGW) attached
+- Configured **Route Table** to send `0.0.0.0/0` traffic through the IGW
+
+---
+
+## 2️⃣ Security Group
+- Created a new **Security Group** for ECS service
+- Allowed:
+  - **Inbound**: `TCP 3000` (for Grafana UI)
+  - **Inbound**: `TCP 22` (optional, for SSH to EC2 bastion if used)
+  - **Outbound**: `All traffic`
+
+---
+
+## 3️⃣ IAM Role
+- Created **ecsTaskExecutionRole**
+  - Policy: `AmazonECSTaskExecutionRolePolicy`
+- Role is used by ECS to **pull images** from Docker Hub/ECR and **send logs** to CloudWatch.
+
+---
+
+## 4️⃣ Task Definition
+- Defined a task (`grafana-task`) with:
+  - **Container Image:** `grafana/grafana:latest`
+  - **Port Mapping:** `3000:3000`
+  - **CPU:** 256
+  - **Memory:** 512
+- Saved task as `grafana-task-def.json`
+
+---
+
+## 5️⃣ ECS Cluster & Service
+- Created an **ECS Cluster**
+- Created a **Service** using:
+  - **Launch Type:** Fargate
+  - **Task Definition:** `grafana-task`
+  - **Desired Tasks:** 1
+  - **Subnets:** Public subnets
+  - **Security Group:** Allows port 3000
+
+---
+
+## 6️⃣ Verification
+- Once service was running, obtained **Public IP** (or ALB DNS if load balancer used)
+- Accessed Grafana at:
+
