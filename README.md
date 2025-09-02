@@ -30,6 +30,14 @@ The goal was to run Grafana as a containerized application in a **serverless env
 
 ---
 
+# Grafana Deployment on AWS ECS Fargate
+
+![AWS](https://img.shields.io/badge/AWS-ECS-orange?logo=amazon-aws&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Container-blue?logo=docker&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-Monitoring-orange?logo=grafana&logoColor=white)
+![Fargate](https://img.shields.io/badge/Fargate-Serverless-green?logo=amazon-aws&logoColor=white)
+
+
 ## 🔗 Accessing Grafana
 - **Port:** 3000  
  
