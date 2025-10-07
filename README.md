@@ -28,9 +28,11 @@ The goal was to run Grafana as a containerized application in a **serverless env
 
 ![ECS cluster](https://github.com/user-attachments/assets/341dede9-6395-4e82-9b85-66eb9371b659)
 
+5. Added postgres Database to store data
+   
+![MYSQL RDS](https://github.com/user-attachments/assets/5dfd043f-978e-44d5-841e-08ac1d1ee253)
 
-
-5. Verified Grafana was accessible at `http://18.234.167.103:3000`.
+6. Verified Grafana was accessible at `http://18.234.167.103:3000`.
 
 <img width="1908" height="891" alt="Grafana Docker image dep on ECS" src="https://github.com/user-attachments/assets/4390c899-c69b-4fc5-9380-3b15adb67391" />
 
